@@ -1,0 +1,17 @@
+About the course
+Working with databases is a key skill for developers, especially those in Back-End, Full Stack, and DevOps roles. This course will teach you the fundamentals of relational databases and how to access them from your applications. 
+
+Some of the essential application development tasks include accessing, processing, and presenting data. Data is stored in various databases, either on-premise or on the cloud, and developers will need to learn how to talk to them via programming languages. 
+
+In this course, you’ll learn about foundational database concepts and the basics of SQL, a simple and powerful programming language used for managing data.  
+
+In addition to SQL, you will discover how Object-Relational Mapping (ORM) allows you to use Object-Oriented Programming (OOP) languages like Python to work with databases. You will gain full-stack Django skills by creating a Django web app to persist, process, and present data. And you will get hands-on experience deploying your Django web app on the cloud. 
+
+Throughout this course, you will practice with hands-on labs. You will also complete a final project at the end of the course to demonstrate what you have learned and have a great addition to your portfolio! 
+
+GitHub
+HTML & CSS 
+Python
+Who is this course intended for?
+
+Anyone and everyone who wants to start building cloud applications - whether you are starting a career as a Cloud Application Developer (e.g. Developers, Systems/Cloud Architects, Technical Leads, Data Engineers, Security Engineers, Consultants, Technical Sellers, etc.) or you are looking to learn more about the technologies used in building, deploying and maintaining cloud applications.
