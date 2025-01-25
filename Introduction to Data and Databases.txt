@@ -1,0 +1,44 @@
+[MUSIC]
+Data is a collection of facts in the form of words, numbers, or even pictures,
+data is one of the most critical assets of any business, it is used and
+collected practically everywhere.
+Your bank stores data about you, your name, address, phone number,
+account numbers, etcetera.
+Your credit card company and your PayPal accounts also store data about you.
+Data is important, so it needs to be secure and it needs to be stored and
+accessed quickly, the answer is a database, so what is a database?
+A database is a collection of data or information designed for the input,
+storage, search and retrieval and modification of data.
+And a database management system, or DBMS,
+is a set of programs that creates and maintains the database.
+It allows you to store, modify and
+extract information from the database using a function called querying.
+For example, if you want to find customers who have been inactive for six months or
+more using the querying function.
+The database management system will retrieve data of all customers from
+the database that have been inactive for six months or more.
+Even though a database and DBMS mean different things,
+the terms are often used interchangeably.
+There are different types of databases.
+Several factors influence the choice of database, such as the data type and
+structure, querying mechanisms, latency requirements,
+transaction speeds, and intended use of the data.
+It's important to mention two main types of databases here relational and
+non-relational databases.
+Relational databases, also referred to as RDBMSs,
+build on the organizational principles of flat files,
+with data organized into a tabular format with rows and columns.
+Following a well-defined structure and schema, however,
+unlike flat files, RDBMSs are optimized for data operations and
+querying involving many tables and much larger data volumes.
+Structured query language, or SQL,
+is the standard querying language for relational databases.
+Then we have non-relational databases, also known as NoSQL, or not only SQL.
+Non-relational databases emerged in response to the volume, diversity and
+speed at which data is being generated today.
+Mainly influenced by advances in cloud computing, the internet of things, and
+social media proliferation.
+Built for speed, flexibility and scale,
+non-relational databases made it possible to store data in a schema-less or
+free form fashion, NoSQL is widely used for processing big data.
+[MUSIC]
