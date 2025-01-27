@@ -1,0 +1,103 @@
+Welcome to introduction to Django.
+After watching this video,
+you will be able to describe the key features and nature of the Django
+web framework and identify the types of web applications that can be built using Django.
+Django is a high-level accessible and open source python web framework.
+It follows the model view controller MVC pattern
+which helps developers build web applications quickly,
+and efficiently Django was created to enable rapid development and code reusability.
+Users can build almost any web application with
+Django including a Content management system or CMS,
+social media platforms, business applications and new websites.
+A common phrase to describe Django is batteries included due to Django's
+comprehensive nature of the Django web framework.
+Django provides a wide range of features and functionalities
+out-of-the-box. Django provides an object relational
+mapping or orm layer that allows you to define your data models
+Using python classes. This makes it easier to work with databases and perform operations.
+Such as querying, inserting, updating, and deleting records
+Django has a built-in template engine that enables developers
+to separate the business logic from the presentation logic of your application.
+Django also provides an administration interface that
+is automatically generated based on the models in your application.
+It provides a user-friendly interface for managing site
+content and can be customized to fit specific requirements.
+Django provides robust security features
+including protection against common web vulnerabilities
+such as cross-site scripting or xss, cross-site request forgery or CSRF, and SQL injection.
+It also provides mechanisms for password hashing and user session management.
+Django has built-in authentication and authorization mechanisms,
+allowing you to manage user accounts, including
+registration login and password management.
+It also provides fine-grained authorization
+controls to define user permissions and access restrictions.
+Django is expandable with the help of modules, also known as Django apps or packages.
+These modules are reusable components that you can integrate
+into your Django projects to add specific functionality or features.
+For example, Django supports language localization, using the gettext module
+Django offers third party packages like Django Simple Captcha for captcha integration,
+which helps prevent automated bot submissions in forms and Django's built-in forms module,
+includes robust form.
+Validation logic to ensure the form data meets the criteria.
+Django promotes an architecture where each web server instance
+operates independently known as the share nothing or stateless.
+Architecture each web server,
+instance handles requests and responses autonomously without relying
+on shared resources or maintains any server-side state between requests.
+Django web framework make scaling easy because the
+Django app is stateless it manages your user sessions.
+This allows developers to add more instances of an application and
+transfer the user's experience across the models without losing data.
+Django support, all kinds of tests, including unit, integration, and functional test.
+Django's testing framework includes a test runner,
+that allows developers to run tests quickly and provides detailed test
+reports. It offers various testing utilities, assertions,
+and fixtures to facilitate writing and executing tests.
+Due to Django being built on python it's platform agnostic meaning
+it could be run on many platforms.
+This platform independence is due to python's
+portability and wide availability on different operating systems.
+This allows developers to choose the hosting
+platform that best suits their needs and infrastructure.
+A Django application can run on almost all Cloud providers.
+Django's platform-agnostic nature
+allows you to deploy your application on various cloud
+platforms depending on your specific requirements and preferences.
+For example,
+if you have a Blog platform and you prefer the
+Simplicity and user-friendliness of Microsoft Azure's cloud services,
+you can deploy your blog application to Azure without any hassle.
+The Django web framework owes much of its success to its dedicated community of users.
+This community includes developers, designers,
+and enthusiasts worldwide, who share a common passion for creating exceptional,
+web applications. One of the core strengths of the Django Community lies in
+its commitment to continuously enhancing and advancing the framework.
+The open-source nature of Django and able to developers
+to contribute their expertise and improvements to the framework's
+codebase. This collective effort results
+in regular updates and releases introducing new features,
+optimizing performances, and addressing security concerns. Several famous,
+web applications have been built using Django. Instagram,
+a popular social media platform for sharing photos
+and videos was initially built using Django. Spotify,
+a leading music
+streaming platform has also used Django and its infrastructure
+The popular video-sharing platform
+YouTube has incorporated Django into its architecture.
+And the Washington Post,
+a renowned news publication has adopted Django for its content management system or CNS.
+In this video, you learn that Django is a high-level
+accessible and open source python web framework. Using Django,
+users can build content Management systems,
+or CMS's, social media platforms, business applications, and websites.
+Django's object relational mapping or orm layer,
+lets you define your data modules using python classes.
+Built in Django features include templates an administration
+interface, security, authentication and authorization,
+mechanisms, user-friendly scaling, and test support.
+Django is expandable with modules or Django apps
+or packages which add functions and features.
+Django promotes a shared nothing or stateless architecture
+allowing for the autonomous handling of requests and
+responses without relying on shared resources. And Django is platform agnostic,
+meaning it can run on any platform and almost any cloud server.

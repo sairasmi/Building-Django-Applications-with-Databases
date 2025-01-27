@@ -1,0 +1,78 @@
+Welcome to Django Model, a popular Object Relational Mapping, or ORM, library for Python
+After watching this video, you will be able to: Explain the core concepts of Django ORM, and
+convert your entity-relationship diagrams into Django models.
+Recall that ORM can make the developer’s life easier by abstracting databases and
+automatically mapping objects and methods to tables and SQL queries.
+Now you will learn how Django ORM, a Python ORM component that belongs to the Django
+web application framework, can help speed up your application development with databases.
+In Django ORM, each Django model maps to a database table.
+When you create a class object, it represents a table row.
+Each field represents a table column. Schema and tables are automatically
+generated once model classes are defined. For example, we can define a User class,
+which is a subclass of the Django model. Django will then create a corresponding User table in the
+database by generating “table create” statements and creating columns based on the class fields.
+In our example, a first_name column will be created based on the first _name field.
+Each field in a model should be defined as a Field class.
+Django maps each field to a column type. Here, first_name is defined as a character
+field and will be transferred into varchar, and date of birth is a date
+field and will be transferred into date. For each column, we define its metadata,
+such as type and constraints, by specifying parameters in a Django Field class. For example,
+for the first_name field, we use the max_length parameter to specify the length for varchar.
+Once we have defined models and fields,
+Django ORM will generate schema and “table create” statements.
+first_name, last_name, and date of birth fields are converted into columns.
+Each field has customization parameters such as null, blank, default, or primary key.
+Next, we model the relationships between entities. Django ORM supports common relationships such as
+One-To-One, Many-To-One, and Many-To-Many. We’ll start with a One-To-One relationship.
+Suppose we have an Instructor and User ER diagram. User class holds some common fields, such as name
+or date of birth, and Instructor class has some special fields like “is full” or total number
+of learners the instructor has. One instructor can only have basic information stored in one
+User class, and one user can only have one role, such as Instructor or Learner.
+Now, let’s convert the ER diagram into two Django models. First, we define the models - Instructor
+and User - and their fields. To define the relationship,
+we define an extra One-To-One field to act as a foreign key pointing to User.
+Django ORM will create Instructor and User tables with a foreign key in the
+Instructor table pointing to the User table. We’ll use a Project and Course ER diagram to
+illustrate a Many-To-One relationship. The Project class represents a course
+project with fields such as project name and grade. The Course class represents an
+online course entity. It has atom fields such as name and description. More importantly,
+it has a collective field called `projects` which represents a set of course project objects.
+Thus, one course would have many course projects, and one course project would
+only belong to one course. This is a typical Many-To-One relationship.
+To create models in Django, we add an extra Course field as a foreign key.
+Note that this is not a One-to-One field because multiple projects may have the same course field.
+For a Many-To-Many relationship, let’s look at a Course and Learner ER diagram.
+One course may have many learners enrolled, and one learner may enroll in many courses.
+To model this relationship, we add a Many-To-Many field to one of the models.
+Normally, the Many-To-Many field should go in the model which will be edited most often.
+For instance, Course will likely be edited on an hourly basis as learners are added or removed,
+but each learner may only enroll in a new course on a weekly or monthly basis.
+Sometimes you may need extra information about the relationship between the models.
+For example, you may want information about the enrollment that occurred between
+learners and courses, such as the date enrolled. Django allows you to specify the model that will
+be used to govern the Many-to-Many relationship. In our case, the intermediate model
+is the Enrollment table. It is associated with the
+Many-To-Many field using the `through` argument. Model inheritance in Django is like inheritance
+in Python. You need to determine if the parents are just holders of common information that will
+only be visible through the child models, or if parents should have their own tables.
+There are three scenarios for model inheritance: Use multi-table mode when you’re subclassing an
+existing model and want each model to have its own database table.
+Use abstract base classes if the parent class will just hold information.
+Use proxy models to modify the Python-level behavior of a model without changing fields.
+Multi-table inheritance is like a One-To-One relationship.
+The only difference is you just need to subclass Instructor from the model.
+Django will create a new Instructor table and a One-To-One field in the Instructor class. As such,
+inheritance for multi-table classes is an implicit one-to-one relationship.
+We have defined entities and relationships for our online course database.
+Now Django will create these database tables and foreign keys automatically.
+User table is the base table which has ID as the primary key and
+contains atom columns such as name. Learner table is inherited from
+user and has a Many-To-Many relationship with Course through an intermediate Enrollment table.
+Instructor and Course also have a Many-to-Many relationship.
+Lastly, the Project and Course tables have a Many-to-One relationship.
+Now that Django has created these tables, we can perform read, update,
+and delete operations on the data. In this video, you learned that:
+In Django ORM, each Django model maps to a database table.
+Each field maps to a column type such as INT, VARCHAR, or DATE.
+Each field has customization parameters.
+Django ORM supports common relationship patterns such as One-To-One, Many-To-One, and Many-To-Many.
