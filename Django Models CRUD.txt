@@ -1,0 +1,76 @@
+Welcome to Django Models CRUD.
+After watching this video, you will be able to: Use Django Model APIs to perform CRUD
+operations on objects in databases. The most common operations on data are:
+Create Read
+Update, and Delete.
+Django Model provides comprehensive CRUD APIs to manipulate objects without writing SQL queries.
+Let’s review the online course models we will use for our examples.
+The base User model contains common information about our Instructor and Learner models.
+Instructor is inherited from the user model and has fields like “is full time” or
+total number of learners. Learner is also inherited.
+It has fields like occupation and social link. The Course model has Many-To-Many relationships
+with both the Instructor and Learner models. Course model also has a Many-To-One relationship
+with the Project model. In a Django model, you create
+an object and call the model’s save method to insert it into the database as a record.
+Here, we have created and saved the object `course_cloud_app`.
+If the object you create contains a reference to another model, such as a Foreign Key or
+Many-to-Many field, you use the related model reference to create a relationship.
+We have created a Project object and referred its Course foreign key to the
+cloud app course we just created. Once we have inserted objects and
+their relationships into the database, we can query them.
+First, let’s see how to read all objects for a model. This is equivalent to using SELECT * from
+a table to get all table rows in SQL. In general, to read objects using Django Model
+API, you need to construct a QuerySet using a Manager on your model class.
+A QuerySet represents a collection of records in a database.
+After you have defined your model by subclassing a Django Model - such as Course in our example –
+you can use its model Manager as an interface to access database records.
+By default, the name of the model manager is `objects`. You can only access the objects manager
+using the model class, not the model instance, to enforce a separation between table-level
+operations and record-level operations. To get all course records, use the Manager’s “all”
+method that will return you a QuerySet object. In the output, you can see that all courses were
+returned and included in the QuerySet object. Usually, you’ll just need a subset of
+records instead of the entire table. To create a subset of part-time instructors,
+you refine the initial QuerySet by calling a filter method.
+The filter method can have many lookup parameters, such as greater than,
+less than, contains, or is null. This is like the condition usage in the SQL WHERE clause.
+Lookup parameters contain the field name and the query expression,
+which can be empty for an equal check or separated by an underscore for other checks.
+In this example, we are checking that the Boolean field “is_full_time” is False,
+to create a subset of only part-time instructors. The Course model manager will return all part-time
+instructor objects contained in a QuerySet object. The exclude method returns a new QuerySet that
+does not match the given lookup parameters. Since both the exclude and filter methods return
+a QuerySet, we could further append exclude and filter methods to form
+a filter chain. This is like adding multiple conditions using `and` in a SQL Where clause.
+We can find a subset of Instructors using both exclude and filter.
+First, we use the exclude method to remove all part time instructors. Then we apply two
+filters to find instructors with more than 30,000 learners and a first name that starts with J.
+Another way to apply multiple filters is by adding multiple lookup parameters in one filter method.
+And we can see the target QuerySet has been returned.
+If there is only one object that matches your query,
+you can use the Get method to return the object.
+For example, if we know there’s only one instructor with the first name `John`,
+we can use the Get method with a first_name lookup parameter to get the instructor.
+In our previous model design, many models were related using relational field references.
+For example, the Course model had a Many-To-Many field reference to the Instructor model.
+From an object point of view, these composite fields are references to related models.
+From a SQL perspective, these fields are foreign keys pointing to related tables and
+could be joined to obtain related information. When querying related records in a database,
+Django handles SQL JOIN automatically, so you can read related objects using references.
+You can also create lookup parameters on the related fields in other objects.
+For example, to find all courses with an instructor whose first name equals `John`,
+we can create a lookup parameter with the related field called `instructors`,
+followed by a double underscore, then followed by an Instructor's field called `first_name`.
+We have seen how to insert records into a database and how to read data using Django models.
+Now let’s see how to update database records by updating objects.
+One way is by updating the primitive fields of an object.
+For our learner object, we can change the “date of birth” field to March 16th,
+1985 and use the “save” method to update the change to the database.
+The Django model will create and execute the corresponding SQL Update statements.
+We can also update the related fields, such as the Foreign Key Field or the Many-To-Many Field.
+For example, we can update a course foreign key field, so it points to a different course.
+We can also use the Add method to add another learner to a course.
+To delete records in a database, you call the Delete method on a model object or a Query Set.
+Django ORM supports different “on delete” options. You will
+learn more about these later. In this video, you learned that:
+With Django APIs, you can perform actions on data in databases without writing SQL queries.
+You can use Django Model APIs to create, read, update, and delete objects.
