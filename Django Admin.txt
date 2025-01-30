@@ -1,0 +1,65 @@
+Welcome to Django Admin. After watching this video, you will be able to
+Build an admin site to manage the content of an online course app without using the
+Model APIs in the shell, and Customize the admin site.
+Let’s review the models we will be using for our online course app.
+The app has some common entities for an online learning application,
+such as Course, Lessons, Questions, and Choices. For persona, it has User, Learner, and Instructor.
+For actions, it has Course Enrollment and Question submission.
+With so many entities and their relationships, you can imagine how hard it would be for
+developers to build this online course app. Fortunately, Django provides developers with
+a very powerful Django admin site to manage this content with minimal coding efforts.
+Django framework has a clear separation between content publishers and users. Django provides
+a built-in admin site to manage content. For an online course app, instructors or
+site managers can use the admin site to add or edit courses, lessons, questions, and so on.
+Once the course is ready and published, students can enroll in the courses on the public site.
+Let’s start building a Django admin site by first creating an admin user for the admin site.
+First, run a command-line `python, manage.py, createsuperuser`.
+It will ask for credentials like username and password.
+After creating the super user, you can start the django server.
+Go to the admin site and login with the credential you just created.
+You will need to register your models to admin site so you can manage them.
+First, open the onlinecourse/admin.py file and add two lines: admin.site.register(Course) and
+admin.site.register(Instructor) to register Course and Instructor models.
+Refresh the admin site. You can see that under the Onlinecourse section, we have added
+Courses and Instructors. Based on the model’s fields,
+Django will create different UI widgets. For instructors,
+Django creates a checkbox for the Boolean field for `Full_time` and numeric input
+for the integer field `total learners`. The Instructor model is inherited from
+User, so User is a related object to Instructor which has some common
+information such as name and date of birth. Here we can just convert a user to an
+instructor and determine if the instructor is full-time or not.
+Notice that although there is a field called Total learners, we probably wouldn’t want to
+manage this field in the admin site, but instead we would calculate it from the number of learners
+that are enrolled in the instructor’s course. Later, we will show you how to choose the fields
+you want to be managed in the admin site. We can create a course by entering its name,
+description, image for the course introduction, publication date, instructors, and so on.
+Developers may only want to include some of the model fields in the admin
+site and to specify a particular order. To select the fields to include, we create a
+model admin class and add a fields list with the field name we want to be included in the model.
+For example, for Course model, we create a CourseAdmin class with a list of fields we
+want to include in the admin site. The order will be pub_date, name, and description.
+Once we have defined CourseAdmin, we modify the admin.site.register method
+to add the CourseAdmin as the second parameter. After refreshing the admin site and trying to
+add a course, only pub date, name, and description are shown and can be edited.
+One course may contain many lessons and questions. Instead of adding each model
+one by one using its own admin form, we can add course and lessons together on one form,
+using admin.StackedInline or admin.TabularInline objects.
+We can create a LessonInLine object by specifying its model to be Lesson and `extra` to be 5,
+which means we want to add at most 5 lessons together with a course at the same time.
+In the CourseAdmin object which defines the course admin form, we add an inlines list to
+include the LessonInline class we defined. After refreshing the page, you can see
+that a Lessons section appears within the Course admin form. You can add the title,
+order, and content of a lesson, which will be added into the course automatically by Django.
+When we display multiple courses or other models in a tabular form,
+we need to determine the fields to appear in the table. For example, for a list of
+courses, we only want to show the name and publication date of the course in the table.
+We do this by adding a list_display with the list of fields we want
+to be shown on the course change table. After refreshing the page, the course change table
+now shows the course name and publication date columns as we defined them in list_display.
+The course change list may be very long, and you may want to be able to search and filter the list.
+To enable search and filter on the course change list, add the search_fields to include the fields
+you want to search and the list_filter to include the fields you want to filter.
+After refreshing the page, a Search box and a Filter menu appear
+on the course change list for you to search and filter the courses on the admin page.
+In this video, you learned that Django Admin site is very powerful and
+easy to use for site managers to manage content. The look and functions can also be customized.
