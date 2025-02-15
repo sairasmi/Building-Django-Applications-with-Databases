@@ -1,0 +1,69 @@
+Welcome to Django Authentication System. After watching this video, you will be able
+to: Define authentication and authorization.
+Use Django User objects to perform authentication and authorization.
+Authentication is the process of validating the identities of users, using credentials
+such as username and password. Modern authentication systems such as one-time passcode via SMS/email
+and single sign-on (SSO), or biometrics such as face recognition and fingerprints, do not
+even require users to enter passwords directly. After users are authenticated, authorization
+will check the users’ access permissions for resources such as databases. System admins
+usually need to define different roles or groups with specific access permissions, such
+as permission to view a course’s content. Admins assign roles or add users to specific
+groups in order to grant access. The User model provides basic user information
+such as username, password, and email. In Django, a User model is created to handle
+authentication and to work with other models such as groups and permissions to handle authorization.
+Developers can extend the User model to define application-specific users such as instructors
+or learners inherited from the User model. To authenticate or login a user with username
+and password, we first create a webpage template to receive the credentials. Let’s see how
+to authenticate a user in a typical web login page.
+Note that this is not a complete html template; we only show the “import form” element.
+For this simple login form, we created a text input for receiving username and a password
+input for receiving password with a password mask.
+Once we submit the form, we will send a POST request to the onlinecourse login view to
+authenticate the user. Here is a preview of the login page we just
+created. Username and password can be entered and sent to a login view in the backend.
+For the login view, we first obtain the username and password from the POST attribute of the
+request object. We use the authenticate method provided by
+Django authentication framework, which returns a valid user if the username and password
+match the database records. It returns “None” if the provided credentials do not match.
+Finally, we can use the login method to login the user and redirect to an index view.
+Once a user is logged in, Django creates a unique session with a session ID. Then it
+queries the user information and appends it to the session so that the server will know
+which user is being identified by the unique session id.
+The web session stores stateful data for users visiting a web site, so that site and user
+can perform a series of actions with server without a login for each action.
+The browser side also stores the session ID in its COOKIE for identifications within the
+site. We can use the COOKIES attribute to get the
+session id and session attribute to get the dictionary-like session data.
+If the user is authenticated, we should be able to see a valid session id and the session
+dictionary data should contain information about the user such as user id.
+If the user is not authenticated, we receive session id as “None” and an empty session
+dictionary. Logging out a user is simple. We just call
+the logout method with the http request object. Creating a registration form is similar to
+creating a login form. We can point the action url of the form to
+a registration view with post method, and add two input elements to receive the
+username and password from users. The registration page is similar to a login
+page. It receives username and password and sends them to a registration view.
+The registration view receives username and password from the POST attribute,
+and calls User model manager’s create_user method to create a new user.
+User can then be logged in and redirected to the onlinecourse index page.
+User authorization in Django is managed mainly by three models: User, Permission, and Group.
+We explained the User model in authentication. The Permission model has many-to-many relationships
+with User to store the types of objects and how users can access them.
+The Group model provides a convenient way to manage users with the same permissions.
+The easiest way to manage permissions and groups is with Django admin site, but you
+can also choose to manage them programmatically using APIs.
+In Django, you can create and assign permissions to each model you have defined.
+The four default permissions are: View, Add, Change, and Delete.
+For example, we have Can add, Can change, Can delete, and Can view permissions for our
+course model. Sometimes we want to group users with the
+same permissions together. With Django Group model, you can create user
+groups and assign permissions to groups. For example, we can create an Instructors
+group with Course add, change, delete, and view permissions.
+We can create another group, Learners, who can only view the course content.
+We can easily add a new instructor user to the Instructors group to grant the user all
+the instructor permissions automatically. In this video, you learned
+The definition of authentication and authorization, and
+How to use Django to Register and authenticate users,
+Add permissions to users using admin site, and
+Manage users as groups. In the authentication and authorization lab,
+you will get more coding practice adding authentication and authorization to a Django app.
